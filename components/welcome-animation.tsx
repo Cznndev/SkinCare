@@ -5,8 +5,15 @@ import { motion, AnimatePresence } from "framer-motion"
 
 export function WelcomeAnimation() {
   const [showWelcome, setShowWelcome] = useState(true)
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
+    // Garante que o código só rode no navegador
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    })
+
     const timer = setTimeout(() => {
       setShowWelcome(false)
     }, 3500)
@@ -15,6 +22,9 @@ export function WelcomeAnimation() {
   }, [])
 
   if (!showWelcome) return null
+  
+  // Condição para renderizar as partículas apenas quando as dimensões estiverem disponíveis
+  const canRenderParticles = dimensions.width > 0;
 
   return (
     <AnimatePresence>
@@ -98,13 +108,13 @@ export function WelcomeAnimation() {
 
         {/* Particles Animation */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
+          {canRenderParticles && [...Array(20)].map((_, i) => (
             <motion.div
               key={i}
               initial={{
                 opacity: 0,
-                x: Math.random() * window.innerWidth,
-                y: Math.random() * window.innerHeight,
+                x: Math.random() * dimensions.width,
+                y: Math.random() * dimensions.height,
                 scale: 0,
               }}
               animate={{
