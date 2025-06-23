@@ -6,7 +6,6 @@ export async function GET() {
     timestamp: new Date().toISOString(),
     version: "1.0.0",
     services: {
-      stripe: process.env.STRIPE_SECRET_KEY ? "configured" : "demo_mode",
       database: "memory", // Since we're using in-memory storage
     },
   })
