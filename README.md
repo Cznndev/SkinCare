@@ -6,7 +6,6 @@ Sistema completo de e-commerce para produtos de skincare masculino com agendamen
 
 ### Pré-requisitos
 - Conta no Vercel
-- Conta no Stripe (opcional - funciona em modo demo)
 
 ### Passos para Deploy
 
@@ -14,3 +13,5 @@ Sistema completo de e-commerce para produtos de skincare masculino com agendamen
 ```bash
 git clone <seu-repositorio>
 cd nam-skincare
+
+}
