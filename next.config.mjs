@@ -11,7 +11,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   experimental: {
-    serverComponentsExternalPackages: ['stripe']
+    serverComponentsExternalPackages: []
   }
 }
 
